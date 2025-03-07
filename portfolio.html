@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Yasteel Ramphal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #1E1E1E;
+            color: #FFFFFF;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: #FFFFFF;
+            text-decoration: none;
+        }
+
+        .nav-links a:hover {
+            color: #1E90FF;
+        }
+
+        .portfolio-container {
+            max-width: 1200px;
+            margin: 50px auto;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #1E90FF;
+            margin-bottom: 20px;
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .project {
+            background: #333;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(30, 144, 255, 0.4);
+        }
+
+        .project h2 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #1E90FF;
+        }
+
+        .project p {
+            color: #CCC;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="logo">
+            <div class="logo-circle">Y</div>
+            Yasteel Ramphal
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="CV - Yasteel Ramphal.pdf">Resume</a>
+        </div>
+    </nav>
+
+    <div class="portfolio-container">
+        <h1>My Portfolio</h1>
+        <div class="projects">
+            <div class="project">
+                <h2>Project 1</h2>
+                <p>Description of Project 1.</p>
+            </div>
+            <div class="project">
+                <h2>Project 2</h2>
+                <p>Description of Project 2.</p>
+            </div>
+            <div class="project">
+                <h2>Project 3</h2>
+                <p>Description of Project 3.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
