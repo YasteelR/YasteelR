@@ -18,6 +18,7 @@
             color: #FFFFFF;
             min-height: 100vh;
             padding: 20px;
+            overflow-x: hidden;
         }
 
         nav {
@@ -29,76 +30,6 @@
             margin: 0 auto;
         }
 
-        .nav-links {
-            display: flex;
-            gap: 30px;
-        }
-
-        .nav-links a {
-            color: #FFFFFF;
-            text-decoration: none;
-        }
-
-        .nav-links a:hover {
-            color: #1E90FF;
-        }
-
-        .portfolio-container {
-            max-width: 800px;
-            margin: 50px auto;
-            text-align: center;
-        }
-
-        h1 {
-            font-size: 2.5em;
-            color: #1E90FF;
-            margin-bottom: 30px;
-        }
-
-        .projects {
-            display: flex;
-            flex-direction: column; /* Make buttons stack vertically */
-            gap: 20px;
-            padding: 20px;
-        }
-
-        .project {
-            background: #333;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            cursor: pointer;
-            text-align: left;
-        }
-
-        .project:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 15px rgba(30, 144, 255, 0.4);
-        }
-
-        .project-icon {
-            font-size: 2em;
-            color: #1E90FF;
-            flex-shrink: 0;
-        }
-
-        .project-text {
-            flex-grow: 1;
-        }
-
-        .project h2 {
-            font-size: 1.5em;
-            margin-bottom: 5px;
-            color: #1E90FF;
-        }
-
-        .project p {
-            color: #CCC;
-        }
         .logo {
             display: flex;
             align-items: center;
@@ -111,7 +42,7 @@
 
         .logo-circle {
             background-color: #1E90FF;
-            width: 40px; /* Increased size for better visibility */
+            width: 40px;
             height: 40px;
             border-radius: 50%;
             display: flex;
@@ -122,10 +53,258 @@
             color: white;
         }
 
-        .logo-text {
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: #FFFFFF;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #1E90FF;
+        }
+
+        .portfolio-container {
+            max-width: 1000px;
+            margin: 50px auto;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #1E90FF;
+            margin-bottom: 30px;
+        }
+
+        .projects {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .project {
+            background: linear-gradient(135deg, #2A2A2A 0%, #333 100%);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            cursor: pointer;
+            text-align: left;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(30, 144, 255, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .project:hover::before {
+            left: 100%;
+        }
+
+        .project:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(30, 144, 255, 0.3);
+            border-color: #1E90FF;
+        }
+
+        .project-icon {
+            font-size: 2.5em;
+            color: #1E90FF;
+            flex-shrink: 0;
+            background: rgba(30, 144, 255, 0.1);
+            width: 80px;
+            height: 80px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .project:hover .project-icon {
+            background: rgba(30, 144, 255, 0.2);
+            transform: scale(1.1);
+        }
+
+        .project-content {
+            flex-grow: 1;
+        }
+
+        .project h2 {
+            font-size: 1.6em;
+            margin-bottom: 8px;
+            color: #1E90FF;
+            font-weight: 600;
+        }
+
+        .project p {
+            color: #CCC;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .project-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 15px;
+            background: rgba(30, 144, 255, 0.1);
+            color: #1E90FF;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(30, 144, 255, 0.3);
+        }
+
+        .project-link:hover {
+            background: rgba(30, 144, 255, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(30, 144, 255, 0.3);
+        }
+
+        .project-link i {
             font-size: 1em;
         }
 
+        /* PDF Viewer Modal */
+        .pdf-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .pdf-modal.active {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .pdf-container {
+            width: 90%;
+            height: 90%;
+            background: #2A2A2A;
+            border-radius: 15px;
+            padding: 20px;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .pdf-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #444;
+        }
+
+        .pdf-title {
+            font-size: 1.5em;
+            color: #1E90FF;
+            font-weight: 600;
+        }
+
+        .close-btn {
+            background: #FF4444;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: all 0.3s ease;
+        }
+
+        .close-btn:hover {
+            background: #FF6666;
+            transform: scale(1.05);
+        }
+
+        .pdf-viewer {
+            width: 100%;
+            height: calc(100% - 80px);
+            border: none;
+            border-radius: 10px;
+            background: white;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .project {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+
+            .project-links {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .pdf-container {
+                width: 95%;
+                height: 95%;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+        }
+
+        /* Loading animation */
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            font-size: 1.2em;
+            color: #1E90FF;
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(30, 144, 255, 0.3);
+            border-top: 4px solid #1E90FF;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-right: 15px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
     </style>
 </head>
 <body>
@@ -144,57 +323,273 @@
     <div class="portfolio-container">
         <h1>My Portfolio</h1>
         <div class="projects">
-            <div href="index.html" class="project">
-                <i class="fas fa-cogs project-icon"></i>
-                <div class="project-text">
-                    <h2>Project 1: Automation System</h2>
-                    <p>An industrial automation system for process control.</p>
-                </div>
-            </div>
+            
+            <!-- Project 1: Industrial Automation System -->
             <div class="project">
-                <i class="fas fa-gamepad project-icon"></i>
-                <div class="project-text">
-                    <h2>Project 2: C++ Arcade Game</h2>
-                    <p>A Super-Pacman arcade game using C++ and RayLib.</p>
+                <div class="project-icon">
+                    <i class="fas fa-cogs"></i>
+                </div>
+                <div class="project-content">
+                    <h2>Industrial Automation System</h2>
+                    <p>Advanced process control system with SCADA integration, PLC programming, and real-time monitoring capabilities for industrial applications.</p>
+                    <div class="project-links">
+                        <a href="#" class="project-link" onclick="openPDF('Industrial Automation System', 'docs/automation_report.pdf')">
+                            <i class="fas fa-file-pdf"></i>
+                            Technical Report
+                        </a>
+                        <a href="https://github.com/YasteelR/automation-system" class="project-link" target="_blank">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </a>
+                        <a href="#" class="project-link" onclick="openPDF('Automation Presentation', 'docs/automation_presentation.pptx')">
+                            <i class="fas fa-presentation"></i>
+                            Presentation
+                        </a>
+                    </div>
                 </div>
             </div>
+
+            <!-- Project 2: Super Pacman Game -->
             <div class="project">
-                <i class="fas fa-gamepad project-icon"></i>
-                <div class="project-text">
-                    <h2>Project 3: C++ Arcade Game</h2>
-                    <p>A Space Invaders arcade game using C++ and SFML.</p>
+                <div class="project-icon">
+                    <i class="fas fa-gamepad"></i>
+                </div>
+                <div class="project-content">
+                    <h2>Super Pacman - C++ Arcade Game</h2>
+                    <p>Classic arcade game recreation using C++ and RayLib with enhanced graphics, power-ups, and modern gameplay mechanics.</p>
+                    <div class="project-links">
+                        <a href="#" class="project-link" onclick="openPDF('Game Development Report', 'docs/pacman_report.pdf')">
+                            <i class="fas fa-file-pdf"></i>
+                            Development Report
+                        </a>
+                        <a href="https://github.com/YasteelR/super-pacman" class="project-link" target="_blank">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </a>
+                        <a href="#" class="project-link" onclick="openPDF('Game Demo', 'docs/pacman_demo.pptx')">
+                            <i class="fas fa-play-circle"></i>
+                            Demo Video
+                        </a>
+                    </div>
                 </div>
             </div>
-            <div href="docs/Design_Final_Report.pdf"  class="project">
-                <i class="fas fa-car project-icon"></i>
-                <div class="project-text">
-                    <h2>Project 3: Remote-Controlled Race Car Utilising Wireless Audio-Transmission</h2>
-                    <p>A cute quick Valentines website with mini-game.</p>
-                </div>
-            </div>
+
+            <!-- Project 3: Space Invaders Game -->
             <div class="project">
-                <i class="fas fa-code project-icon"></i>
-                <div class="project-text">
-                    <h2>Project 1: Website</h2>
-                    <p>A responsive personal website showcasing my work.</p>
+                <div class="project-icon">
+                    <i class="fas fa-rocket"></i>
+                </div>
+                <div class="project-content">
+                    <h2>Space Invaders - C++ SFML Game</h2>
+                    <p>Modern take on the classic Space Invaders using C++ and SFML with particle effects, multiple enemy types, and progressive difficulty.</p>
+                    <div class="project-links">
+                        <a href="#" class="project-link" onclick="openPDF('Space Invaders Documentation', 'docs/space_invaders_report.pdf')">
+                            <i class="fas fa-file-pdf"></i>
+                            Documentation
+                        </a>
+                        <a href="https://github.com/YasteelR/space-invaders" class="project-link" target="_blank">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </a>
+                        <a href="#" class="project-link" onclick="openPDF('Gameplay Analysis', 'docs/space_invaders_analysis.pptx')">
+                            <i class="fas fa-chart-line"></i>
+                            Analysis
+                        </a>
+                    </div>
                 </div>
             </div>
+
+            <!-- Project 4: Remote-Controlled Race Car -->
             <div class="project">
-                <i class="fas fa-robot project-icon"></i>
-                <div class="project-text">
-                    <h2>Project 2: AI Chatbot</h2>
-                    <p>An AI-powered chatbot built using Python and NLP.</p>
+                <div class="project-icon">
+                    <i class="fas fa-car"></i>
+                </div>
+                <div class="project-content">
+                    <h2>Remote-Controlled Race Car with Wireless Audio Transmission</h2>
+                    <p>Engineering design project featuring wireless control, real-time audio transmission, and telemetry data collection for competitive racing.</p>
+                    <div class="project-links">
+                        <a href="#" class="project-link" onclick="openPDF('Design Final Report', 'docs/Design_Final_Report.pdf')">
+                            <i class="fas fa-file-pdf"></i>
+                            Final Report
+                        </a>
+                        <a href="https://github.com/YasteelR/rc-race-car" class="project-link" target="_blank">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </a>
+                        <a href="#" class="project-link" onclick="openPDF('Project Presentation', 'docs/rc_car_presentation.pptx')">
+                            <i class="fas fa-presentation"></i>
+                            Presentation
+                        </a>
+                    </div>
                 </div>
             </div>
+
+            <!-- Project 5: Personal Website -->
             <div class="project">
-                <i class="fas fa-heart project-icon"></i>
-                <div class="project-text">
-                    <h2>Project 3: Valentines Website</h2>
-                    <p>A cute quick Valentines website with mini-game.</p>
+                <div class="project-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <div class="project-content">
+                    <h2>Responsive Personal Website</h2>
+                    <p>Modern, responsive personal portfolio website built with HTML5, CSS3, and JavaScript featuring dynamic animations and mobile optimization.</p>
+                    <div class="project-links">
+                        <a href="#" class="project-link" onclick="openPDF('Web Development Guide', 'docs/website_documentation.pdf')">
+                            <i class="fas fa-file-pdf"></i>
+                            Documentation
+                        </a>
+                        <a href="https://github.com/YasteelR/personal-website" class="project-link" target="_blank">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </a>
+                        <a href="#" class="project-link" onclick="window.open('https://yasteelr.github.io', '_blank')">
+                            <i class="fas fa-external-link-alt"></i>
+                            Live Site
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 6: AI Chatbot -->
+            <div class="project">
+                <div class="project-icon">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="project-content">
+                    <h2>AI-Powered Chatbot</h2>
+                    <p>Intelligent conversational AI built with Python, NLP libraries, and machine learning algorithms for natural language understanding and response generation.</p>
+                    <div class="project-links">
+                        <a href="#" class="project-link" onclick="openPDF('AI Research Paper', 'docs/chatbot_research.pdf')">
+                            <i class="fas fa-file-pdf"></i>
+                            Research Paper
+                        </a>
+                        <a href="https://github.com/YasteelR/ai-chatbot" class="project-link" target="_blank">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </a>
+                        <a href="#" class="project-link" onclick="openPDF('AI Presentation', 'docs/chatbot_presentation.pptx')">
+                            <i class="fas fa-brain"></i>
+                            AI Analysis
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 7: Valentine's Website -->
+            <div class="project">
+                <div class="project-icon">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <div class="project-content">
+                    <h2>Interactive Valentine's Day Website</h2>
+                    <p>Charming interactive website with mini-games, animations, and personalized messages created for Valentine's Day celebration.</p>
+                    <div class="project-links">
+                        <a href="#" class="project-link" onclick="openPDF('Creative Process', 'docs/valentine_creative_process.pdf')">
+                            <i class="fas fa-file-pdf"></i>
+                            Creative Process
+                        </a>
+                        <a href="https://github.com/YasteelR/valentine-website" class="project-link" target="_blank">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </a>
+                        <a href="#" class="project-link" onclick="window.open('https://yasteelr.github.io/valentine', '_blank')">
+                            <i class="fas fa-external-link-alt"></i>
+                            Live Demo
+                        </a>
+                    </div>
                 </div>
             </div>
 
         </div>
     </div>
+
+    <!-- PDF Modal -->
+    <div class="pdf-modal" id="pdfModal">
+        <div class="pdf-container">
+            <div class="pdf-header">
+                <div class="pdf-title" id="pdfTitle">Document Viewer</div>
+                <button class="close-btn" onclick="closePDF()">
+                    <i class="fas fa-times"></i> Close
+                </button>
+            </div>
+            <div id="pdfContent" class="pdf-viewer">
+                <div class="loading">
+                    <div class="spinner"></div>
+                    Loading document...
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openPDF(title, pdfPath) {
+            const modal = document.getElementById('pdfModal');
+            const titleElement = document.getElementById('pdfTitle');
+            const contentElement = document.getElementById('pdfContent');
+            
+            titleElement.textContent = title;
+            modal.classList.add('active');
+            
+            // Show loading state
+            contentElement.innerHTML = `
+                <div class="loading">
+                    <div class="spinner"></div>
+                    Loading document...
+                </div>
+            `;
+            
+            // Simulate loading delay and then show PDF
+            setTimeout(() => {
+                if (pdfPath.endsWith('.pdf')) {
+                    contentElement.innerHTML = `<iframe src="${pdfPath}" class="pdf-viewer" frameborder="0"></iframe>`;
+                } else if (pdfPath.endsWith('.pptx') || pdfPath.endsWith('.ppt')) {
+                    // For PowerPoint files, we'll use a placeholder since direct embedding isn't supported
+                    contentElement.innerHTML = `
+                        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; text-align: center;">
+                            <i class="fas fa-presentation" style="font-size: 4em; color: #1E90FF; margin-bottom: 20px;"></i>
+                            <h2 style="color: #1E90FF; margin-bottom: 15px;">PowerPoint Presentation</h2>
+                            <p style="color: #CCC; margin-bottom: 25px;">This presentation contains detailed information about the project.</p>
+                            <a href="${pdfPath}" download class="project-link" style="font-size: 1.1em; padding: 12px 24px;">
+                                <i class="fas fa-download"></i>
+                                Download Presentation
+                            </a>
+                        </div>
+                    `;
+                }
+            }, 1000);
+        }
+        
+        function closePDF() {
+            const modal = document.getElementById('pdfModal');
+            modal.classList.remove('active');
+        }
+        
+        // Close modal when clicking outside
+        document.getElementById('pdfModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closePDF();
+            }
+        });
+        
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closePDF();
+            }
+        });
+        
+        // Add smooth scroll behavior
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
