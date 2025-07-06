@@ -363,6 +363,8 @@ h1 {
 .about-text {
     font-size: 1.1em;
     line-height: 1.8;
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 .skills-grid {
@@ -601,7 +603,7 @@ h1 {
     .about-content {
         grid-template-columns: 1fr;
         gap: 30px;
-        text-align: center;
+        
     }
 
     .section {
