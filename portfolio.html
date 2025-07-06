@@ -99,7 +99,6 @@
             display: flex;
             align-items: center;
             gap: 25px;
-            cursor: pointer;
             text-align: left;
             border: 2px solid transparent;
             position: relative;
@@ -198,78 +197,6 @@
             font-size: 1em;
         }
 
-        /* PDF Viewer Modal */
-        .pdf-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            z-index: 1000;
-            backdrop-filter: blur(10px);
-        }
-
-        .pdf-modal.active {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .pdf-container {
-            width: 90%;
-            height: 90%;
-            background: #2A2A2A;
-            border-radius: 15px;
-            padding: 20px;
-            position: relative;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-        }
-
-        .pdf-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid #444;
-        }
-
-        .pdf-title {
-            font-size: 1.5em;
-            color: #1E90FF;
-            font-weight: 600;
-        }
-
-        .close-btn {
-            background: #FF4444;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 1em;
-            transition: all 0.3s ease;
-            min-height: 44px;
-            min-width: 44px;
-            -webkit-tap-highlight-color: transparent;
-            user-select: none;
-        }
-
-        .close-btn:hover {
-            background: #FF6666;
-            transform: scale(1.05);
-        }
-
-        .pdf-viewer {
-            width: 100%;
-            height: calc(100% - 80px);
-            border: none;
-            border-radius: 10px;
-            background: white;
-        }
-
         /* Mobile-First Responsive Design */
         @media (max-width: 480px) {
             body {
@@ -348,29 +275,6 @@
                 min-width: 120px;
                 justify-content: center;
             }
-
-            .pdf-container {
-                width: 95%;
-                height: 95%;
-                padding: 15px;
-                margin: 10px;
-            }
-
-            .pdf-header {
-                flex-direction: column;
-                gap: 10px;
-                margin-bottom: 15px;
-            }
-
-            .pdf-title {
-                font-size: 1.2em;
-                text-align: center;
-            }
-
-            .close-btn {
-                align-self: center;
-                padding: 8px 16px;
-            }
         }
 
         @media (min-width: 481px) and (max-width: 768px) {
@@ -407,11 +311,6 @@
                 flex: 1;
                 min-width: 140px;
                 justify-content: center;
-            }
-
-            .pdf-container {
-                width: 90%;
-                height: 90%;
             }
         }
 
@@ -479,14 +378,6 @@
                 transform: scale(0.95);
                 transition: transform 0.1s ease;
             }
-
-            .close-btn:hover {
-                transform: none;
-            }
-
-            .close-btn:active {
-                transform: scale(0.95);
-            }
         }
 
         /* High DPI display optimization */
@@ -496,29 +387,9 @@
             }
         }
 
-        /* Loading animation */
-        .loading {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100%;
-            font-size: 1.2em;
-            color: #1E90FF;
-        }
-
-        .spinner {
-            width: 40px;
-            height: 40px;
-            border: 4px solid rgba(30, 144, 255, 0.3);
-            border-top: 4px solid #1E90FF;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin-right: 15px;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
         }
     </style>
 </head>
@@ -548,17 +419,13 @@
                     <h2>Industrial Automation System</h2>
                     <p>Advanced process control system with SCADA integration, PLC programming, and real-time monitoring capabilities for industrial applications.</p>
                     <div class="project-links">
-                        <a href="#" class="project-link" onclick="openPDF('Industrial Automation System', 'docs/automation_report.pdf')">
+                        <a href="docs/automation_report.pdf" class="project-link" target="_blank">
                             <i class="fas fa-file-pdf"></i>
-                            Technical Report
+                            Report
                         </a>
                         <a href="https://github.com/YasteelR/automation-system" class="project-link" target="_blank">
                             <i class="fab fa-github"></i>
                             GitHub
-                        </a>
-                        <a href="#" class="project-link" onclick="openPDF('Automation Presentation', 'docs/automation_presentation.pptx')">
-                            <i class="fas fa-presentation"></i>
-                            Presentation
                         </a>
                     </div>
                 </div>
@@ -573,17 +440,13 @@
                     <h2>Super Pacman - C++ Arcade Game</h2>
                     <p>Classic arcade game recreation using C++ and RayLib with enhanced graphics, power-ups, and modern gameplay mechanics.</p>
                     <div class="project-links">
-                        <a href="#" class="project-link" onclick="openPDF('Game Development Report', 'docs/pacman_report.pdf')">
+                        <a href="docs/pacman_report.pdf" class="project-link" target="_blank">
                             <i class="fas fa-file-pdf"></i>
-                            Development Report
+                            Report
                         </a>
                         <a href="https://github.com/YasteelR/super-pacman" class="project-link" target="_blank">
                             <i class="fab fa-github"></i>
                             GitHub
-                        </a>
-                        <a href="#" class="project-link" onclick="openPDF('Game Demo', 'docs/pacman_demo.pptx')">
-                            <i class="fas fa-play-circle"></i>
-                            Demo Video
                         </a>
                     </div>
                 </div>
@@ -598,17 +461,13 @@
                     <h2>Space Invaders - C++ SFML Game</h2>
                     <p>Modern take on the classic Space Invaders using C++ and SFML with particle effects, multiple enemy types, and progressive difficulty.</p>
                     <div class="project-links">
-                        <a href="#" class="project-link" onclick="openPDF('Space Invaders Documentation', 'docs/space_invaders_report.pdf')">
+                        <a href="docs/space_invaders_report.pdf" class="project-link" target="_blank">
                             <i class="fas fa-file-pdf"></i>
-                            Documentation
+                            Report
                         </a>
                         <a href="https://github.com/YasteelR/space-invaders" class="project-link" target="_blank">
                             <i class="fab fa-github"></i>
                             GitHub
-                        </a>
-                        <a href="#" class="project-link" onclick="openPDF('Gameplay Analysis', 'docs/space_invaders_analysis.pptx')">
-                            <i class="fas fa-chart-line"></i>
-                            Analysis
                         </a>
                     </div>
                 </div>
@@ -623,17 +482,13 @@
                     <h2>Remote-Controlled Race Car with Wireless Audio Transmission</h2>
                     <p>Engineering design project featuring wireless control, real-time audio transmission, and telemetry data collection for competitive racing.</p>
                     <div class="project-links">
-                        <a href="#" class="project-link" onclick="openPDF('Design Final Report', 'docs/Design_Final_Report.pdf')">
+                        <a href="docs/Design_Final_Report.pdf" class="project-link" target="_blank">
                             <i class="fas fa-file-pdf"></i>
-                            Final Report
+                            Report
                         </a>
                         <a href="https://github.com/YasteelR/rc-race-car" class="project-link" target="_blank">
                             <i class="fab fa-github"></i>
                             GitHub
-                        </a>
-                        <a href="#" class="project-link" onclick="openPDF('Project Presentation', 'docs/rc_car_presentation.pptx')">
-                            <i class="fas fa-presentation"></i>
-                            Presentation
                         </a>
                     </div>
                 </div>
@@ -648,17 +503,13 @@
                     <h2>Responsive Personal Website</h2>
                     <p>Modern, responsive personal portfolio website built with HTML5, CSS3, and JavaScript featuring dynamic animations and mobile optimization.</p>
                     <div class="project-links">
-                        <a href="#" class="project-link" onclick="openPDF('Web Development Guide', 'docs/website_documentation.pdf')">
+                        <a href="docs/website_documentation.pdf" class="project-link" target="_blank">
                             <i class="fas fa-file-pdf"></i>
-                            Documentation
+                            Report
                         </a>
                         <a href="https://github.com/YasteelR/personal-website" class="project-link" target="_blank">
                             <i class="fab fa-github"></i>
                             GitHub
-                        </a>
-                        <a href="#" class="project-link" onclick="window.open('https://yasteelr.github.io', '_blank')">
-                            <i class="fas fa-external-link-alt"></i>
-                            Live Site
                         </a>
                     </div>
                 </div>
@@ -673,17 +524,13 @@
                     <h2>AI-Powered Chatbot</h2>
                     <p>Intelligent conversational AI built with Python, NLP libraries, and machine learning algorithms for natural language understanding and response generation.</p>
                     <div class="project-links">
-                        <a href="#" class="project-link" onclick="openPDF('AI Research Paper', 'docs/chatbot_research.pdf')">
+                        <a href="docs/chatbot_research.pdf" class="project-link" target="_blank">
                             <i class="fas fa-file-pdf"></i>
-                            Research Paper
+                            Report
                         </a>
                         <a href="https://github.com/YasteelR/ai-chatbot" class="project-link" target="_blank">
                             <i class="fab fa-github"></i>
                             GitHub
-                        </a>
-                        <a href="#" class="project-link" onclick="openPDF('AI Presentation', 'docs/chatbot_presentation.pptx')">
-                            <i class="fas fa-brain"></i>
-                            AI Analysis
                         </a>
                     </div>
                 </div>
@@ -698,17 +545,13 @@
                     <h2>Interactive Valentine's Day Website</h2>
                     <p>Charming interactive website with mini-games, animations, and personalized messages created for Valentine's Day celebration.</p>
                     <div class="project-links">
-                        <a href="#" class="project-link" onclick="openPDF('Creative Process', 'docs/valentine_creative_process.pdf')">
+                        <a href="docs/valentine_creative_process.pdf" class="project-link" target="_blank">
                             <i class="fas fa-file-pdf"></i>
-                            Creative Process
+                            Report
                         </a>
                         <a href="https://github.com/YasteelR/valentine-website" class="project-link" target="_blank">
                             <i class="fab fa-github"></i>
                             GitHub
-                        </a>
-                        <a href="#" class="project-link" onclick="window.open('https://yasteelr.github.io/valentine', '_blank')">
-                            <i class="fas fa-external-link-alt"></i>
-                            Live Demo
                         </a>
                     </div>
                 </div>
@@ -717,82 +560,8 @@
         </div>
     </div>
 
-    <!-- PDF Modal -->
-    <div class="pdf-modal" id="pdfModal">
-        <div class="pdf-container">
-            <div class="pdf-header">
-                <div class="pdf-title" id="pdfTitle">Document Viewer</div>
-                <button class="close-btn" onclick="closePDF()">
-                    <i class="fas fa-times"></i> Close
-                </button>
-            </div>
-            <div id="pdfContent" class="pdf-viewer">
-                <div class="loading">
-                    <div class="spinner"></div>
-                    Loading document...
-                </div>
-            </div>
-        </div>
-    </div>
-
     <script>
-        function openPDF(title, pdfPath) {
-            const modal = document.getElementById('pdfModal');
-            const titleElement = document.getElementById('pdfTitle');
-            const contentElement = document.getElementById('pdfContent');
-            
-            titleElement.textContent = title;
-            modal.classList.add('active');
-            
-            // Show loading state
-            contentElement.innerHTML = `
-                <div class="loading">
-                    <div class="spinner"></div>
-                    Loading document...
-                </div>
-            `;
-            
-            // Simulate loading delay and then show PDF
-            setTimeout(() => {
-                if (pdfPath.endsWith('.pdf')) {
-                    contentElement.innerHTML = `<iframe src="${pdfPath}" class="pdf-viewer" frameborder="0"></iframe>`;
-                } else if (pdfPath.endsWith('.pptx') || pdfPath.endsWith('.ppt')) {
-                    // For PowerPoint files, we'll use a placeholder since direct embedding isn't supported
-                    contentElement.innerHTML = `
-                        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; text-align: center;">
-                            <i class="fas fa-presentation" style="font-size: 4em; color: #1E90FF; margin-bottom: 20px;"></i>
-                            <h2 style="color: #1E90FF; margin-bottom: 15px;">PowerPoint Presentation</h2>
-                            <p style="color: #CCC; margin-bottom: 25px;">This presentation contains detailed information about the project.</p>
-                            <a href="${pdfPath}" download class="project-link" style="font-size: 1.1em; padding: 12px 24px;">
-                                <i class="fas fa-download"></i>
-                                Download Presentation
-                            </a>
-                        </div>
-                    `;
-                }
-            }, 1000);
-        }
-        
-        function closePDF() {
-            const modal = document.getElementById('pdfModal');
-            modal.classList.remove('active');
-        }
-        
-        // Close modal when clicking outside
-        document.getElementById('pdfModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closePDF();
-            }
-        });
-        
-        // Close modal with Escape key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                closePDF();
-            }
-        });
-        
-        // Add smooth scroll behavior
+        // Add smooth scroll behavior for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
